@@ -16,7 +16,7 @@ bash oxy-snapshot.sh help
 ```
 
 ## Note
-when using oxy-checker the following command are not needed, oxy-checker will make the daily snapshots
+when using oxy-checker the following commands are not needed, oxy-checker will make the daily snapshots
 
 ## Available commands
 
