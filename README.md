@@ -14,6 +14,10 @@ git clone https://github.com/Oxycoin/oxy-snapshot
 cd oxy-snapshot/
 bash oxy-snapshot.sh help
 ```
+
+## Note
+when using oxy-checker the following command are not needed, oxy-checker will make the daily snapshots
+
 ## Available commands
 
     - create
