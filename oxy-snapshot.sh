@@ -29,7 +29,7 @@ SNAPSHOT_COUNTER=snapshot/counter.json
 SNAPSHOT_LOG=snapshot/snapshot.log
 if [ ! -f "snapshot/counter.json" ]; then
   sudo rm /home/snap/snapshot -R
-  echo "Error? No problem"
+  echo "Error No problem"
   mkdir -p snapshot
   sudo chmod a+x oxy-snapshot.sh
   echo "0" > $SNAPSHOT_COUNTER
