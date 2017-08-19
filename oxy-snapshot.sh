@@ -51,7 +51,7 @@ create_snapshot() {
   dbSize=`psql -d $DB_NAME -U $DB_USER -h localhost -p 5432 -t -c "select pg_size_pretty(pg_database_size('$DB_NAME'));"`
   gzip blockhain.db
   sudo apt-get install apache2 -y
-  sudo cp /home/snap/snapshot/blockchain.db.gz /var/www/html
+  sudo cp snapshot/blockchain.db.gz /var/www/html
 
   if [ $? != 0 ]; then
     echo "X Failed to create snapshot." | tee -a $SNAPSHOT_LOG
