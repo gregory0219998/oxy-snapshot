@@ -50,7 +50,7 @@ create_snapshot() {
   sudo su postgres -c "pg_dump -Fp $DB_NAME > $SNAPSHOT_DIRECTORY'blockchain.db'"
   blockHeight=`psql -d $DB_NAME -U $DB_USER -h localhost -p 5432 -t -c "select height from blocks order by height desc limit 1;"`
   dbSize=`psql -d $DB_NAME -U $DB_USER -h localhost -p 5432 -t -c "select pg_size_pretty(pg_database_size('$DB_NAME'));"`
-  gzip blockchain.db
+  gzip snapshot/blockchain.db
   sudo apt-get install apache2 -y
   sudo cp snapshot/blockchain.db.gz /var/www/html
 
