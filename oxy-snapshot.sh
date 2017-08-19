@@ -29,6 +29,7 @@ SNAPSHOT_COUNTER=snapshot/counter.json
 SNAPSHOT_LOG=snapshot/snapshot.log
 if [ ! -f "snapshot/counter.json" ]; then
   sudo rm /home/snap/snapshot -R
+  echo "Error? No problem"
   mkdir -p snapshot
   sudo chmod a+x oxy-snapshot.sh
   echo "0" > $SNAPSHOT_COUNTER
@@ -46,10 +47,10 @@ create_snapshot() {
   echo " + Creating snapshot"
   echo "--------------------------------------------------"
   echo "..."
-  sudo su postgres -c "pg_dump -Ft $DB_NAME > '$SNAPSHOT_DIRECTORY$DB_NAME$NOW.snapshot.tar'"
+  sudo su postgres -c "pg_dump -Fp $DB_NAME > '$SNAPSHOT_DIRECTORY'blockhain.db'"
   blockHeight=`psql -d $DB_NAME -U $DB_USER -h localhost -p 5432 -t -c "select height from blocks order by height desc limit 1;"`
   dbSize=`psql -d $DB_NAME -U $DB_USER -h localhost -p 5432 -t -c "select pg_size_pretty(pg_database_size('$DB_NAME'));"`
-  gzip blockhain.db
+  gzip blockchain.db
   sudo apt-get install apache2 -y
   sudo cp snapshot/blockchain.db.gz /var/www/html
 
