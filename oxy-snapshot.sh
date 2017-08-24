@@ -59,6 +59,7 @@ create_snapshot() {
     exit 1
   else
     echo "$NOW -- OK snapshot created successfully at block $blockHeight ($dbSize)." | tee -a $SNAPSHOT_LOG
+    echo "If you want to stop the webserver run: sudo service apache2 stop" 
   fi
 
 }
